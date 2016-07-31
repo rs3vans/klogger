@@ -30,6 +30,15 @@ class Thing {
         log.trace("A message")
     }
 }
+
+// ...or by a lazy delegate
+class Thing {
+    private val log by lazyLogger()
+    
+    fun doThing() {
+        log.trace("A message")
+    }
+}
 ```
 
 #### Logging messages and exceptions ####
@@ -56,6 +65,18 @@ class Thing : Logging {
     fun doThing() {
         trace("A message")
     }
+}
+```
+
+Additionally, this logging behavior can be added to a class or companion object via entension of the `WithLogging` type:
+
+```kotlin
+class Thing {
+    fun doThing() {
+        trace("A message")
+    }
+    
+    companion object : WithLogging()
 }
 ```
 

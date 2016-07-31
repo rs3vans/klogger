@@ -3,16 +3,14 @@ package org.rs3vans.kt.klogger
 import org.junit.Test
 import java.time.LocalDateTime
 
-class LoggingTest {
+class WithLoggingTest {
 
     @Test
-    fun testLoggingInterface() {
+    fun testWithLoggingClass() {
         Thing().doStuff()
     }
 
-    class Thing : Logging {
-        override val logger = logger()
-
+    class Thing {
         fun doStuff() {
             trace("Doing that thing!")
             trace { "The current time is ${LocalDateTime.now()}" }
@@ -29,5 +27,7 @@ class LoggingTest {
             error { "Oh noes! The current time is ${LocalDateTime.now()}" }
             error(RuntimeException()) { "Oh noes! The current time is ${LocalDateTime.now()}" }
         }
+
+        companion object : WithLogging()
     }
 }
