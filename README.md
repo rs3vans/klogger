@@ -80,6 +80,27 @@ class Thing {
 }
 ```
 
+## Download ##
+`klogger` binaries can be downloaded from [Bintray](https://bintray.com/rs3vans/maven/klogger).
+
+### Gradle ###
+You can add `klogger` to your project using Gradle by adding the following to your `build.gradle` dependencies:
+
+```groovy
+compile 'org.rs3vans:klogger:1.0-Final'
+```
+    
+### Maven ###
+You can add `klogger` to your project using Gradle by adding the following to your `build.gradle` dependencies:
+
+```xml
+<dependency>
+  <groupId>org.rs3vans</groupId>
+  <artifactId>klogger</artifactId>
+  <version>1.0-Final</version>
+</dependency>
+```
+
 ## License ##
 `klogger` is licensed under the Apache Software License v2.0.
 
