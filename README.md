@@ -1,4 +1,4 @@
-# klogger #
+# klogger [![Travis](https://img.shields.io/travis/rs3vans/klogger.svg)](https://travis-ci.org/rs3vans/klogger) [![Bintray](https://img.shields.io/bintray/v/rs3vans/maven/klogger.svg)](https://bintray.com/rs3vans/maven/klogger) #
 A [Kotlin](https://kotlinlang.org/) library for logging.
 
 ## Overview ##
