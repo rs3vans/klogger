@@ -13,7 +13,19 @@ fun String.logger(): Logger =
         LoggerFactory.getLogger(this)
 
 fun Any.logger(): Logger =
-        LoggerFactory.getLogger(this.javaClass)
+        LoggerFactory.getLogger(unwrapCompanionClass(this.javaClass))
+
+fun Any.lazyLogger(): Lazy<Logger> =
+        lazy { logger() }
 
 inline fun <reified T : Any> logger(): Logger =
         LoggerFactory.getLogger(T::class.java)
+
+private fun <T: Any> unwrapCompanionClass(ofClass: Class<T>): Class<*> {
+    return if (ofClass.enclosingClass != null
+            && ofClass.name == (ofClass.enclosingClass.name + "\$Companion")) {
+        ofClass.enclosingClass
+    } else {
+        ofClass
+    }
+}
