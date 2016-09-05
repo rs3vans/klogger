@@ -87,7 +87,7 @@ class Thing {
 You can add `klogger` to your project using Gradle by adding the following to your `build.gradle` dependencies:
 
 ```groovy
-compile 'com.github.rs3vans.klogger:klogger:1.0-Final'
+compile 'com.github.rs3vans.klogger:klogger:1.0.1'
 ```
     
 ### Maven ###
@@ -97,7 +97,7 @@ You can add `klogger` to your project using Gradle by adding the following to yo
 <dependency>
   <groupId>com.github.rs3vans.klogger</groupId>
   <artifactId>klogger</artifactId>
-  <version>1.0-Final</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
