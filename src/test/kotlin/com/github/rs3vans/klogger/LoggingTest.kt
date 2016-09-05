@@ -1,16 +1,18 @@
-package org.rs3vans.kt.klogger
+package com.github.rs3vans.klogger
 
 import org.junit.Test
 import java.util.*
 
-class WithLoggingTest {
+class LoggingTest {
 
     @Test
-    fun testWithLoggingClass() {
+    fun testLoggingInterface() {
         Thing().doStuff()
     }
 
-    class Thing {
+    class Thing : Logging {
+        override val logger = logger()
+
         fun doStuff() {
             trace("Doing that thing!")
             trace { "The current time is ${Date()}" }
@@ -27,7 +29,5 @@ class WithLoggingTest {
             error { "Oh noes! The current time is ${Date()}" }
             error(RuntimeException()) { "Oh noes! The current time is ${Date()}" }
         }
-
-        companion object : WithLogging()
     }
 }

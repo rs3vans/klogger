@@ -1,4 +1,4 @@
-package org.rs3vans.kt.klogger
+package com.github.rs3vans.klogger
 
 import org.junit.Test
 import java.util.*
