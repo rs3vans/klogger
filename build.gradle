@@ -51,13 +51,18 @@ dokka {
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    configurations = ['archives']
+    publications = ['KloggerPublication']
     pkg {
         repo = 'maven'
         name = 'klogger'
         userOrg = user
-        licenses = ['Apache-2.0']
+        desc = 'A Kotlin library for logging.'
+        licenses = ['MIT']
+        websiteUrl = 'https://github.com/rs3vans/klogger/wiki'
+        issueTrackerUrl = 'https://github.com/rs3vans/klogger/issues'
         vcsUrl = 'https://github.com/rs3vans/klogger.git'
+        publicDownloadNumbers = true
+        githubRepo = 'rs3vans/klogger'
         version {
             name = project.version
             desc = 'Klogger - ' + project.version
@@ -83,4 +88,17 @@ task dokkaJar(type: Jar, dependsOn: dokkaJavadoc) {
 
 artifacts {
     archives sourcesJar, dokkaJar
+}
+
+publishing {
+    publications {
+        KloggerPublication(MavenPublication) {
+            from components.java
+            groupId 'com.github.rs3vans.klogger'
+            artifactId 'klogger'
+            version '1.0.1'
+            artifact sourcesJar
+            artifact dokkaJar
+        }
+    }
 }
